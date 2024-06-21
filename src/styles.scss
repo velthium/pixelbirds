@@ -1,0 +1,139 @@
+@import "bootstrap/scss/bootstrap";
+
+$sand-color: #ffdb6d;
+$nature-color: #9bf36c;
+$softred-color: #f09f8c;
+
+@font-face {
+    font-family: 'Dogicapixel';
+    src: url('/dogicapixel.ttf') format('truetype');
+}
+
+.box-med-shadow {
+    box-shadow: 0 4px 8px 0 rgba(109, 35, 35, 0.2);
+}
+
+.text-cornsilk, a.nav-link, button.nav-link, .nav-link:focus {
+    color: cornsilk;
+}
+
+.nav-link:hover {
+    color: $sand-color;
+}
+
+.figure-caption {
+    color: black;
+}
+
+body {
+    background-color: cornsilk;
+    font-family: 'Dogicapixel', sans-serif;
+}
+
+.fit-content-center {
+    width: fit-content;
+    margin: auto;
+}
+
+.bg-softred {
+    background-color: $softred-color;
+}
+
+.bg-sunshine {
+    background-color: $sand-color;
+}
+
+.bg-nature {
+    background-color: $nature-color;
+}
+
+.homepage-pictures {
+    opacity: 1;
+    transition: opacity 1s
+}
+
+.homepage-pictures:hover {
+    opacity: 0.8;
+    transition: opacity 1s
+}
+
+h2 {
+    font-size: 24px;
+}
+  
+@media (min-width: 768px) {
+    h2 {
+    font-size: 22px;
+    }
+}
+  
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+}
+
+.extra-small {
+    font-size: 12px;
+}
+
+#game-container {
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    max-height: 600px;
+    margin: 0 auto;
+  }
+
+@media (min-width: 571px) {
+
+    .main-timeline {
+        position: relative;
+    }
+
+    .main-timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        background-color: #939597;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+    }
+
+    .timeline {
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+    }
+
+
+    .timeline::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -13px;
+        background-color: #939597;
+        border: 5px solid $sand-color;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    .left {
+        padding: 0px 40px 20px 0px;
+        left: 0;
+    }
+
+    .right {
+        padding: 0px 0px 20px 40px;
+        left: 50%;
+    }
+
+    .right::after {
+        left: -12px;
+    }
+
+}
