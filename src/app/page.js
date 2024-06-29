@@ -1,8 +1,8 @@
 "use client";
 
 import Counter from "@/components/Counter";
-import Image from "next/image";
 import Phase from "@/components/Phase";
+import Image from "next/image";
 
 export default function HomePage() {
   const phases = [

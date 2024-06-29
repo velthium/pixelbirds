@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import ErrorAlert from "@/components/Alert/Error";
 import PageTitle from "@/components/Title";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,7 @@ function KeplrPage() {
   const handleClickKeplr = useCallback(async () => {
     try {
       const keplrData = await Keplr();
-      sessionStorage.setItem("walletSigner", JSON.stringify(keplrData));
+      sessionStorage.setItem("walletSigner", keplrData);
       router.push("/");
     } catch (error) {
       setError(error);
@@ -53,7 +53,7 @@ function KeplrPage() {
             alt="Keplr"
             height="122"
             width="163"
-            priority
+            priority={true}
           />
           <p className="m-auto w-75 bg-purple text-dark rounded h6 py-2">Connect</p>
         </button>

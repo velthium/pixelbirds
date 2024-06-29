@@ -1,9 +1,9 @@
 "use client";
 
-import { useParams } from 'next/navigation';
-import dynamic from 'next/dynamic';
+import { useParams } from "next/navigation";
+import dynamic from "next/dynamic";
 
-const DynamicPhaserGame = dynamic(() => import('@/components/PhaserGame'), { ssr: false });
+const DynamicPhaserGame = dynamic(() => import("@/components/PhaserGame"), { ssr: false });
 
 const GamePage = () => {
   const params = useParams();

@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
+import ErrorAlert from "@/components/Alert/Error";
 import Image from "next/image";
 
 const COLLECTION_ADDRESS = "stars1d5frtu2txpy2c5v9jg60wqju2qk8cm8xg3k7s4k863m4hg9mt70sxlxtq2";
 
 export default function CollectionPage() {
-  const [nfts, setNfts] = useState([]);
   const userWalletAddress = JSON.parse(sessionStorage.getItem("walletAddress"));
+  const [nfts, setNfts] = useState([]);
+  const [error, setError] = useState(null);
 
   const fetchData = useCallback(async () => {
     const query = `
@@ -25,26 +27,26 @@ export default function CollectionPage() {
 
     const variables = {
       ownerAddrOrName: userWalletAddress,
-      collectionAddr: COLLECTION_ADDRESS
+      collectionAddr: COLLECTION_ADDRESS,
     };
 
     try {
       const response = await fetch("https://graphql.mainnet.stargaze-apis.com/graphql", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query, variables })
+        body: JSON.stringify({ query, variables }),
       });
 
       const responseData = await response.json();
       const tokens = responseData.data.tokens.tokens.map(token => ({
         tokenId: token.tokenId,
-        imageUrl: token.media.url
+        imageUrl: token.media.url,
       }));
       setNfts(tokens);
     } catch (error) {
-      console.error("Une erreur s'est produite lors de l'appel à l'API GraphQL.", error);
+      setError(error);
     }
   }, [userWalletAddress]);
 
@@ -75,6 +77,7 @@ export default function CollectionPage() {
             </div>
           ))}
         </div>
+        {error && <ErrorAlert error={error} />}
       </main>
     </div>
   );

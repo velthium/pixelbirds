@@ -1,8 +1,8 @@
 "use client"
 
-import Link from 'next/link'
-import React, { useState, useEffect } from 'react';
 import TruncatedAddress from "@/components/TruncatedAddress"
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link'
 
 export default function Header() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,7 +17,7 @@ export default function Header() {
         const storedWalletSigner = sessionStorage.getItem('walletSigner');
 
         if (storedWalletSigner) {
-            setWalletSigner(JSON.parse(storedWalletSigner));
+            setWalletSigner(storedWalletSigner);
             setIsLoggedIn(true);
         }
     }, []);

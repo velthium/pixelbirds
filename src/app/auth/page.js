@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useCallback } from "react";
 import PageTitle from "@/components/Title";
+import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,6 +17,13 @@ const WalletButton = ({ href, src, alt, text }) => {
       </button>
     </Link>
   );
+};
+
+WalletButton.propTypes = {
+  href: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default function Auth() {
