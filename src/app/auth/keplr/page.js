@@ -1,42 +1,29 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import ErrorAlert from "@/components/Alert/Error";
 import PageTitle from "@/components/Title";
 import { useRouter } from "next/navigation";
-import Keplr from "@/utils/Keplr";
 import Image from "next/image";
+import connectKeplr from "@/utils/connectKeplr";
 
 function KeplrPage() {
   const [error, setError] = useState(null);
   const router = useRouter();
 
-  const handleClickPreviousPage = useCallback(() => {
+  const handleClickPreviousPage = () => {
     router.push("/");
-  }, [router]);
+  };
 
-  const handleClickKeplr = useCallback(async () => {
+  const handleClickKeplr = async () => {
     try {
-      const keplrData = await Keplr();
+      const keplrData = await connectKeplr();
       sessionStorage.setItem("walletSigner", keplrData);
       router.push("/");
     } catch (error) {
       setError(error);
     }
-  }, [router]);
-
-  useEffect(() => {
-    const handleKeystoreChange = () => {
-      handleClickKeplr();
-    };
-
-    if (typeof window !== "undefined") {
-      window.addEventListener("keplr_keystorechange", handleKeystoreChange);
-      return () => {
-        window.removeEventListener("keplr_keystorechange", handleKeystoreChange);
-      };
-    }
-  }, [handleClickKeplr]);
+  };
 
   return (
     <div className="container">

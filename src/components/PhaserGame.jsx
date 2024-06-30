@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import * as Phaser from 'phaser';
+import PropTypes from "prop-types";
+import { useEffect } from "react";
+import * as Phaser from "phaser";
 
 const PhaserGame = ({ gameId }) => {
   useEffect(() => {
-    // Vérifier si le code s'exécute dans le navigateur
-    if (typeof window === 'undefined') {
+    // Check if the code is running in the browser
+    if (typeof window === "undefined") {
       return;
     }
 
@@ -19,9 +20,9 @@ const PhaserGame = ({ gameId }) => {
       type: Phaser.AUTO,
       width: sizes.width,
       height: sizes.height,
-      parent: 'game-container',
+      parent: "game-container",
       physics: {
-        default: 'arcade',
+        default: "arcade",
         arcade: {
           gravity: { y: speedDown },
           debug: false,
@@ -37,20 +38,20 @@ const PhaserGame = ({ gameId }) => {
     const game = new Phaser.Game(config);
 
     function preload() {
-      this.load.image('background', '/images/BattleBackground.png');
-      this.load.image('bird', '/images/Bird.svg');
+      this.load.image("background", "/images/BattleBackground.png");
+      this.load.image("bird", "/images/Bird.svg");
     }
 
     function create() {
-      this.add.image(0, 0, 'background').setOrigin(0, 0);
-      this.player1 = this.physics.add.image(420, 620, 'bird').setOrigin(0, 0);
+      this.add.image(0, 0, "background").setOrigin(0, 0);
+      this.player1 = this.physics.add.image(420, 620, "bird").setOrigin(0, 0);
       this.player1.setImmovable(true);
       this.player1.body.allowGravity = false;
       this.player1.setCollideWorldBounds(true);
 
       this.cursor = this.input.keyboard.createCursorKeys();
 
-      this.player1Text = this.add.text(420, 620, 'Player 1', { font: '16px Arial', fill: '#ffffff' });
+      this.player1Text = this.add.text(420, 620, "Player 1", { font: "16px Arial", fill: "#ffffff" });
 
       this.playerSpeed = 500;
     }
@@ -78,16 +79,22 @@ const PhaserGame = ({ gameId }) => {
       }
     }
 
+    // Cleanup function
+    // eslint-disable-next-line consistent-return
     return () => {
       game.destroy(true);
     };
   }, [gameId]);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <div id="game-container"></div>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+      <div id="game-container" />
     </div>
   );
+};
+
+PhaserGame.propTypes = {
+  gameId: PropTypes.string.isRequired,
 };
 
 export default PhaserGame;

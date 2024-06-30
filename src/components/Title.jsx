@@ -1,7 +1,6 @@
-"use client"
+"use client";
 
 import PropTypes from "prop-types";
-import React from "react";
 
 function Title(props) {
   return (
@@ -10,7 +9,7 @@ function Title(props) {
 }
 
 Title.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default Title;

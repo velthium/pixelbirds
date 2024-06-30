@@ -7,9 +7,16 @@ import Image from "next/image";
 const COLLECTION_ADDRESS = "stars1d5frtu2txpy2c5v9jg60wqju2qk8cm8xg3k7s4k863m4hg9mt70sxlxtq2";
 
 export default function CollectionPage() {
-  const userWalletAddress = JSON.parse(sessionStorage.getItem("walletAddress"));
+  const [userWalletAddress, setUserWalletAddress] = useState(null);
   const [nfts, setNfts] = useState([]);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const address = JSON.parse(sessionStorage.getItem("walletAddress"));
+      setUserWalletAddress(address);
+    }
+  }, []);
 
   const fetchData = useCallback(async () => {
     const query = `

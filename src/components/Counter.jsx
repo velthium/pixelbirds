@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function Counter() {
   const [currentPixelBirds, setCurrentPixelBirds] = useState(0);
@@ -14,10 +14,9 @@ function Counter() {
       setCurrentPixelBirds(prev => {
         if (prev < PixelBirds) {
           return prev + 35;
-        } else {
-          clearInterval(pixelBirdsInterval);
-          return prev;
         }
+        clearInterval(pixelBirdsInterval);
+        return prev;
       });
     }, 25);
 
@@ -25,10 +24,9 @@ function Counter() {
       setCurrentTraits(prev => {
         if (prev < Traits) {
           return prev + 1;
-        } else {
-          clearInterval(traitsInterval);
-          return prev;
         }
+        clearInterval(traitsInterval);
+        return prev;
       });
     }, 500);
 
