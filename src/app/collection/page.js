@@ -78,7 +78,7 @@ export default function CollectionPage() {
                   className="w-100 rounded img-responsive"
                   width={200}
                   height={200}
-                  priority // <-- Add this line to load the images immediately
+                  priority={true}
                 />
               </a>
               <div className="caption pt-3">

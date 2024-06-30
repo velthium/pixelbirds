@@ -1,26 +1,29 @@
 "use client";
 
 import TruncatedAddress from "@/components/TruncatedAddress";
+import { useAuth } from '@/contexts/Auth';
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Header() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { walletAddress, setWalletAddress } = useAuth();
     const [walletSigner, setWalletSigner] = useState(null);
 
     function handleLogoutClick() {
         sessionStorage.clear();
-        setIsLoggedIn(false);
+        setWalletAddress(false);
+        setWalletSigner(null);
     }
 
     useEffect(() => {
-        const storedWalletSigner = sessionStorage.getItem("walletSigner");
+        const walletSigner = sessionStorage.getItem("walletSigner");
+        const walletAddress = sessionStorage.getItem("walletAddress");
 
-        if (storedWalletSigner) {
-            setWalletSigner(storedWalletSigner);
-            setIsLoggedIn(true);
+        if (walletAddress) {
+            setWalletSigner(walletSigner);
+            setWalletAddress(walletAddress);
         }
-    }, []);
+    }, [walletAddress]);
 
     return (
         <header>
@@ -45,7 +48,7 @@ export default function Header() {
                             <Link className="nav-link" href="/collection">Collection</Link>
                         </li>
                         )}
-                       {isLoggedIn ? (
+                       {walletAddress ? (
                             <li className="nav-item mx-2">
                                 <button type="button" className="button nav-link" id="login-link" onClick={handleLogoutClick}>Logout</button>
                             </li>

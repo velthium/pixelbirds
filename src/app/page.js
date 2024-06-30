@@ -39,7 +39,7 @@ export default function HomePage() {
               height={300}
               alt="Mint Page"
               className="img-fluid border rounded shadow homepage-pictures"
-              priority
+              priority={true}
             />
           </a>
         </figure>
@@ -57,7 +57,7 @@ export default function HomePage() {
               height={300}
               alt="Marketplace"
               className="img-fluid border rounded shadow homepage-pictures"
-              priority
+              priority={true}
             />
           </a>
         </figure>
@@ -80,7 +80,7 @@ export default function HomePage() {
           height={300}
           alt="Velthium"
           className="img-fluid mx-auto border rounded shadow homepage-pictures"
-          priority
+          priority={true}
         />
       </div>
     </div>

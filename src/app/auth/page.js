@@ -28,7 +28,7 @@ WalletButton.propTypes = {
 
 export default function Auth() {
   return (
-    <div className="container">
+    <div className="container text-center py-5">
       <PageTitle title="Connect your Wallet" />
       <WalletButton href="/auth/keplr" src="/images/Keplr.svg" alt="Keplr" text="Keplr Wallet" />
       <WalletButton href="/auth/leap" src="/images/Leap.svg" alt="Leap" text="Leap Wallet" />

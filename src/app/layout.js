@@ -1,3 +1,5 @@
+import BootstrapClient from '@/components/BootstrapClient';
+import { AuthProvider } from "@/contexts/Auth";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PropTypes from "prop-types";
@@ -16,11 +18,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <main>
+            {children}
+          </main>
+          <BootstrapClient />
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

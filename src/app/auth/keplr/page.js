@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import ErrorAlert from "@/components/Alert/Error";
-import PageTitle from "@/components/Title";
 import { useRouter } from "next/navigation";
+import connectKeplr from '@/utils/connectKeplr';
+import PageTitle from "@/components/Title";
+import { useAuth } from '@/contexts/Auth';
 import Image from "next/image";
-import connectKeplr from "@/utils/connectKeplr";
 
 function KeplrPage() {
   const [error, setError] = useState(null);
+  const { setWalletAddress } = useAuth();
   const router = useRouter();
 
   const handleClickPreviousPage = () => {
@@ -17,8 +19,10 @@ function KeplrPage() {
 
   const handleClickKeplr = async () => {
     try {
-      const keplrData = await connectKeplr();
-      sessionStorage.setItem("walletSigner", keplrData);
+      const { keplrSigner, walletAddress } = await connectKeplr();
+      sessionStorage.setItem("walletSigner", keplrSigner);
+      sessionStorage.setItem("walletAddress", walletAddress);
+      setWalletAddress(walletAddress);
       router.push("/");
     } catch (error) {
       setError(error);
@@ -26,7 +30,7 @@ function KeplrPage() {
   };
 
   return (
-    <div className="container">
+    <div className="container text-center py-5">
       <PageTitle title="Keplr Wallet" />
       <div className="d-grid gap-5">
         <button
