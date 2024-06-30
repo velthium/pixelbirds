@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const Phase = ({ phase, title, description, completed }) => {
   return (
     <div className={`timeline pt-3 ${phase % 2 === 0 ? "right" : "left"}`}>
-      <div className={`card ${completed ? "bg-nature" : "bg-info-subtle"}`}>
+      <div className={`card ${completed ? "bg-warning" : "bg-sunshine"}`}>
         <div className="card-body text-center p-4">
           <h2 className="fw-medium">{title}</h2>
           <p>{description} {completed && (

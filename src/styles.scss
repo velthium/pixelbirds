@@ -1,12 +1,20 @@
 @import "bootstrap/scss/bootstrap";
 
 $sand-color: #ffdb6d;
-$nature-color: #9bf36c;
 $softred-color: #f09f8c;
 
 @font-face {
     font-family: 'Dogicapixel';
     src: url('/dogicapixel.ttf') format('truetype');
+}
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+    max-width: 200px; /* Adjust the maximum width as needed */
+    max-height: 200px; /* Adjust the maximum height as needed */
+    object-fit: contain; /* This will maintain the aspect ratio */
+    border-radius: 0.25rem; /* Adjust for the rounded corners */
 }
 
 .box-med-shadow {
@@ -41,10 +49,6 @@ body {
 
 .bg-sunshine {
     background-color: $sand-color;
-}
-
-.bg-nature {
-    background-color: $nature-color;
 }
 
 .homepage-pictures {
@@ -82,7 +86,10 @@ h2 {
     height: 100%;
     max-width: 800px;
     max-height: 600px;
-    margin: 0 auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 @media (min-width: 571px) {

@@ -10,7 +10,7 @@ const WalletButton = ({ href, src, alt, text }) => {
     <Link href={href} className="nav-link">
       <button
         type="button"
-        className="btn bg-white border shadow-sm mw-25 mx-auto d-flex align-items-center m-5"
+        className="btn bg-sunshine box-med-shadow mw-25 mx-auto d-flex align-items-center m-5"
       >
         <Image src={src} alt={alt} width="50" height="50" />
         <p className="fw-semibold fs-4 my-auto ms-3">{text}</p>

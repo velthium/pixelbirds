@@ -80,15 +80,14 @@ const PhaserGame = ({ gameId }) => {
     }
 
     // Cleanup function
-    // eslint-disable-next-line consistent-return
     return () => {
       game.destroy(true);
     };
   }, [gameId]);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-      <div id="game-container" />
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: `${window.innerHeight}px` }}>
+      <div id="game-container" style={{ width: "1366px", height: "768px" }} />
     </div>
   );
 };

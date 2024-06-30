@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function Title(props) {
   return (
-    <h1 className="h3 mb-5 p-5 custom-orange text-center">{props.title}</h1>
+    <h1 className="mb-5 custom-orange text-center">{props.title}</h1>
   );
 }
 

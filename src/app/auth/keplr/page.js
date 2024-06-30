@@ -31,7 +31,7 @@ function KeplrPage() {
       <div className="d-grid gap-5">
         <button
           type="button"
-          className="btn bg-light-green mw-25 rounded-5 mx-auto my-5 p-4"
+          className="btn box-med-shadow bg-sunshine bg-light-green mw-25 rounded-5 mx-auto my-5 p-4"
           onClick={handleClickKeplr}
         >
           <Image
