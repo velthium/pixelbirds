@@ -13,7 +13,7 @@ export default function CollectionPage() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const address = JSON.parse(sessionStorage.getItem("walletAddress"));
+      const address = sessionStorage.getItem("walletAddress");
       setUserWalletAddress(address);
     }
   }, []);
