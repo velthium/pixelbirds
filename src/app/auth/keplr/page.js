@@ -3,9 +3,9 @@
 import { useState } from "react";
 import ErrorAlert from "@/components/Alert/Error";
 import { useRouter } from "next/navigation";
-import connectKeplr from '@/utils/connectKeplr';
+import connectKeplr from "@/utils/connectKeplr";
 import PageTitle from "@/components/Title";
-import { useAuth } from '@/contexts/Auth';
+import { useAuth } from "@/contexts/Auth";
 import Image from "next/image";
 
 function KeplrPage() {

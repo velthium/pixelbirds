@@ -1,4 +1,4 @@
-import BootstrapClient from '@/components/BootstrapClient';
+import BootstrapClient from "@/components/BootstrapClient";
 import { AuthProvider } from "@/contexts/Auth";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";

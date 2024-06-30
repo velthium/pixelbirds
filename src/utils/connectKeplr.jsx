@@ -8,7 +8,7 @@ const connectKeplr = async () => {
       const keplrSigner = window.getOfflineSigner(chainId);
       const accounts = await keplrSigner.getAccounts();
       if (accounts.length > 0) {
-        let walletAddress = accounts[0].address;
+        const walletAddress = accounts[0].address;
         return { keplrSigner, walletAddress };
       }
     } catch (error) {

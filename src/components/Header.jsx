@@ -1,7 +1,7 @@
 "use client";
 
 import TruncatedAddress from "@/components/TruncatedAddress";
-import { useAuth } from '@/contexts/Auth';
+import { useAuth } from "@/contexts/Auth";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
@@ -23,7 +23,7 @@ export default function Header() {
             setWalletSigner(walletSigner);
             setWalletAddress(walletAddress);
         }
-    }, [walletAddress]);
+    }, [setWalletAddress]);
 
     return (
         <header>
