@@ -23,7 +23,7 @@ export default function Header() {
             setWalletSigner(walletSigner);
             setWalletAddress(walletAddress);
         }
-    }, [setWalletAddress]);
+    }, [walletAddress]);
 
     return (
         <header>
